@@ -1,7 +1,6 @@
 public class CheckCordInTrussUsingLineFormula {
     public static boolean check_Using_lines(double x, double y){
-        if (x>125.024 && x<168.78 && 222.934>y && 100.316<y
-        || x > 420.035 && x < 526.226 && y>100.316 && y<222.934){
+        if (x>125.024 && x<168.78 && 222.934>y && 100.316<y){
             if (below_top_left_line(x,y) && above_bottom_left_line(x,y) && above_bottom_left_small_triangle(x ,y) && below_top_left_small_triangle(x, y)){
                 return true;
             }
