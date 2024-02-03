@@ -1,16 +1,16 @@
 public class CheckCordInTrussUsingLineFormula {
-    public static boolean right_check_Using_lines(double x, double y){
-        if (x>125.024 && x<168.78 && 222.934>y && 100.316<y){
-            if (below_top_left_line(x,y) && above_bottom_left_line(x,y) && above_bottom_left_triangle(x ,y) && below_top_left_triangle(x, y)){
+    public static boolean in_truss (double x, double y){
+        //check right side
+        if (x > 420.035 && x < 526.226 && y>100.316 && y<222.934){
+            if (below_top_right_triangle(x,y) && above_bottom_right_triangle(x,y) && below_top_right_line(x,y) && above_bottom_right_line(x,y)){
                 return true;
             }
         }
-        return false;
-    }
-    public static boolean left_check_Using_lines(double x, double y){
-        if (x > 420.035 && x < 526.226 && y>100.316 && y<222.934){
-            if (below_top_right_triangle(x,y) && above_bottom_right_triangle(x,y) && below_top_right_line(x,y) && above_bottom_right_line(x,y)){
-                return (true);
+
+        //check left side
+        if (x>125.024 && x<231.215 && 222.934>y && 100.316<y){
+            if (below_top_left_line(x,y) && above_bottom_left_line(x,y) && above_bottom_left_triangle(x ,y) && below_top_left_triangle(x, y)){
+                return true;
             }
         }
         return false;
@@ -79,5 +79,9 @@ public class CheckCordInTrussUsingLineFormula {
             return true;
         }
         return false;
+    }
+
+    public static void main(String[] args) {
+        boolean test = in_truss(200, 175);
     }
 }
