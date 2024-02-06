@@ -47,5 +47,24 @@ public class CoordinateInTriangle {
         } else {
             return false;
         }
+    }//IN INCHES///
+    public static boolean point_in_left_truss (double x, double y){
+        if (IsCordInTriangle(x,y, 231.215, 230.089, 112.631,161.625, 231.215, 93.161)){
+            //check middle left
+            if(!IsCordInTriangle(x,y, 112.631,161.625,125.024, 154.47,125.024,168.78)){
+                //check top triangle
+                if(!IsCordInTriangle(x,y,231.215,230.089, 218.822,222.934,231.215, 215.78)){
+                    //
+                    if(!IsCordInTriangle(x,y, 231.215,107.47, 218.822,100.316, 231.215, 93.161)){
+                        return true;
+                    }
+                }
+            }
+        }
+        return false;
     }
+    public static boolean point_in_right_truss (double x, double y){
+        return (IsCordInTriangle(x,y, 420.035, 230.089, 538.619,161.625, 420.035, 93.161));
+    }
+
 }

@@ -42,4 +42,22 @@ class CheckCordInTrussUsingLineFormulaTest {
         boolean test = CheckCordInTrussUsingLineFormula.in_truss(230,105);
         assertFalse(test);
     }
+
+    @Test
+    void inside_small_top_right_triangle(){
+        boolean test = CheckCordInTrussUsingLineFormula.in_truss(425,220);
+        assertFalse(test);
+    }
+
+    @Test
+    void inside_small_bottom_right_triangle(){
+        boolean test = CheckCordInTrussUsingLineFormula.in_truss(421,100);
+        assertFalse(test);
+    }
+
+    @Test
+    void on_perimeter(){
+        boolean test = CheckCordInTrussUsingLineFormula.in_truss(473,199.51);
+        assertTrue(test);
+    }
 }
