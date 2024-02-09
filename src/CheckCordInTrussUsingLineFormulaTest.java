@@ -56,8 +56,10 @@ class CheckCordInTrussUsingLineFormulaTest {
     }
 
     @Test
-    void on_perimeter(){
-        boolean test = CheckCordInTrussUsingLineFormula.in_truss(473,199.51);
+    void test_robot(){
+        boolean test = CheckCordInTrussUsingLineFormula.robot_in_truss(225,180, 260, 125, 235, 175, 27, 140);
         assertTrue(test);
     }
+
+
 }
