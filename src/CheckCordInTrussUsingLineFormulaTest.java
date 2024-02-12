@@ -56,10 +56,19 @@ class CheckCordInTrussUsingLineFormulaTest {
     }
 
     @Test
-    void test_robot(){
-        boolean test = CheckCordInTrussUsingLineFormula.robot_in_truss(225,180, 260, 125, 235, 175, 27, 140);
+    void robot_true (){
+        boolean test = CheckCordInTrussUsingLineFormula.robot_in_truss(496.062992, 118.11, 33.46457, 0);
         assertTrue(test);
     }
 
-
+    @Test
+    void robot_good (){
+        boolean test = CheckCordInTrussUsingLineFormula.robot_in_truss(503.937008,118.11, 33.46457, 1.57);
+        assertTrue(test);
+    }
+    @Test
+    void robot_bad (){
+        boolean test = CheckCordInTrussUsingLineFormula.robot_in_truss(503.937008,118.11, 33.46457, .5);
+        assertFalse(test);
+    }
 }
