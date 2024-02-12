@@ -17,23 +17,16 @@ public class CheckCordInTrussUsingLineFormula {
         return false;
     }
     public static boolean robot_in_truss (double center_x, double center_y, double side_length, double radi){
-        double x1 = rotating_point_x(center_x + side_length/2, center_y + side_length/2, center_x,center_y, radi);
-        double x2 = rotating_point_x(center_x - side_length/2, center_y + side_length/2, center_x,center_y, radi);
-        double x3 = rotating_point_x(center_x - side_length/2, center_y - side_length/2, center_x,center_y, radi);
-        double x4 = rotating_point_x(center_x + side_length/2, center_y - side_length/2, center_x,center_y, radi);
-
-        double y1 = rotating_point_y(center_x + side_length/2, center_y + side_length/2, center_x,center_y, radi);
-        double y2 = rotating_point_y(center_x - side_length/2, center_y + side_length/2, center_x,center_y, radi);
-        double y3 = rotating_point_y(center_x - side_length/2, center_y - side_length/2, center_x,center_y, radi);
-        double y4 = rotating_point_y(center_x + side_length/2, center_y - side_length/2, center_x,center_y, radi);
-
-        return in_truss(x1, y1) || in_truss(x2, y2) || in_truss(x3, y3) || in_truss(x4, y4);
+        //check all points//
+        return rotating_point_in_truss(center_x + side_length/2, center_y + side_length/2, center_x,center_y, radi)
+                || rotating_point_in_truss(center_x - side_length/2, center_y + side_length/2, center_x,center_y, radi)
+                || rotating_point_in_truss(center_x - side_length/2, center_y - side_length/2, center_x,center_y, radi)
+                || rotating_point_in_truss(center_x + side_length/2, center_y - side_length/2, center_x,center_y, radi);
     }
-    public static double rotating_point_x (double x, double y, double center_x, double center_y, double rotation){
-        return (x - center_x)*Math.cos(rotation) - (y - center_y)*Math.sin(rotation) + center_x;
-    }
-    public static double rotating_point_y (double x, double y, double center_x, double center_y, double rotation){
-        return (x - center_x)*Math.sin(rotation) + (y - center_y)*Math.cos(rotation) + center_y;
+    public static boolean rotating_point_in_truss (double x, double y, double center_x, double center_y, double rotation){
+        double x_cord = (x - center_x)*Math.cos(rotation) - (y - center_y)*Math.sin(rotation) + center_x;
+        double y_cord = (x - center_x)*Math.sin(rotation) + (y - center_y)*Math.cos(rotation) + center_y;
+        return in_truss(x_cord, y_cord);
     }
 
     public static boolean below_top_left_line (double x, double y){
